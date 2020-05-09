@@ -1,10 +1,10 @@
-// https://leetcode.com/problems/delete-node-in-a-linked-list/
+# https://leetcode.com/problems/delete-node-in-a-linked-list/
 
 class Solution:
 	def deleteNode(self, node):
-		p = None
+		processed_node = None
 		while node and node.next:
 			node.val = node.next.val
-			p = node
+			processed_node = node
 			node = node.next
-		p.next = None
+		processed_node.next = None
