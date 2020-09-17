@@ -8,14 +8,33 @@
 #         self.right = None
 
 class Solution:
+    # def invertTree(self, root: TreeNode) -> TreeNode:
+    #     if root is None:
+    #         return None
+
+    #     left = self.invertTree(root.left)
+    #     right = self.invertTree(root.right)
+        
+    #     root.left = right
+    #     root.right = left
+        
+    #     return root
+
     def invertTree(self, root: TreeNode) -> TreeNode:
         if root is None:
             return None
-
-        left = self.invertTree(root.left)
-        right = self.invertTree(root.right)
-        
-        root.left = right
-        root.right = left
-        
-        return root
+	    
+	    queue = []
+	    queue.append(root)
+	    while queue:
+	        current = queue.pop()
+	        temp = current.left
+	        current.left = current.right
+	        current.right = temp
+	        
+	        if current.left:
+	        	queue.append(current.left)
+	        if current.right:
+	        	queue.append(current.right)
+	    
+	    return root

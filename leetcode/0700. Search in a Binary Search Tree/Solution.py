@@ -15,12 +15,4 @@ class Solution:
         if root.val == val:
             return root
         
-        l = searchBST(root.left, val)
-        if l:
-            return l
-        
-        r = searchBST(root.right, val)
-        if r:
-            return r
-        
-        return None
+        return self.searchBST(root.left, val) or self.searchBST(root.right, val)
